@@ -1,0 +1,38 @@
+@import 'tailwindcss';
+
+@layer base {
+	body {
+		@apply font-sans;
+		font-family: 'Inter', sans-serif;
+	}
+
+	h1,
+	h2 {
+		font-family: 'Roboto Condensed', sans-serif;
+	}
+}
+
+@media print {
+	body * {
+		visibility: hidden;
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+    @page {
+        margin: 0;
+    }
+    
+	#cv-container,
+	#cv-container * {
+		visibility: visible;
+	}
+
+	#cv-container {
+		@apply absolute top-0 left-0 w-full border-none p-10 shadow-none inset-shadow-transparent;
+	}
+
+	button,
+	.print-hidden {
+		display: none !important;
+	}
+}
