@@ -3,15 +3,17 @@
 </script>
 
 <div
-	class="container mx-auto max-w-4xl bg-white px-12 py-18 shadow-lg inset-shadow-2xs"
+	class="container mx-auto max-w-4xl bg-white px-8 py-18 shadow-lg inset-shadow-2xs sm:px-12"
 	id="cv-container"
 >
 	<div class="mb-6 space-y-1">
-		<h1 class="text-[40px] font-bold uppercase">{data.name}</h1>
+		<h1 class="text-[38px] font-bold uppercase sm:text-[40px]">{data.name}</h1>
 		{#if data.jobs.length > 0}
-			<ul class="flex gap-2">
+			<ul class="flex flex-col gap-1 sm:flex-row sm:gap-2">
 				{#each data.jobs as job, i}
-					<li class="text-lg tracking-widest uppercase after:content-[','] last:after:content-none">
+					<li
+						class="text-base tracking-widest uppercase after:content-[','] last:after:content-none sm:text-lg"
+					>
 						{job}
 					</li>
 				{/each}
@@ -38,9 +40,9 @@
 		<div>
 			{#each data.experiences as experience, i}
 				<div class="mb-4">
-					<div class="flex items-center gap-2">
-						<h3 class="text-lg font-semibold">{experience.title}</h3>
-						<h3 class="text-sm text-slate-600 italic">
+					<div class="mb-2 flex flex-col sm:mb-0 sm:flex-row sm:items-center sm:gap-2">
+						<h3 class="text-lg font-semibold text-nowrap">{experience.title}</h3>
+						<h3 class="text-sm text-nowrap text-slate-600 italic">
 							( {experience.period.start} - {experience.period.end} )
 						</h3>
 					</div>
@@ -56,7 +58,7 @@
 		<div>
 			{#each data.educations as education, i}
 				<div class="mb-4">
-					<div class="flex items-center gap-2">
+					<div class="flex flex-col items-start gap-0 sm:flex-row sm:items-center sm:gap-2 mb-2 sm:mb-0">
 						<h3 class="text-lg font-semibold">{education.degree}</h3>
 						<h3 class="text-sm text-slate-600 italic">
 							( {education.period.start} - {education.period.end} )
@@ -65,7 +67,7 @@
 					<h4 class="mb-1 text-sm">{education.school} . {education.faculty}</h4>
 					<div class="mb-1 flex items-center">
 						<p class="text-sm">GPA: {education.grade} / 4.00</p>
-						<a class="ml-2 text-sm text-blue-500" href="/certificate.pdf" target='_blank'>[file]</a>
+						<a class="ml-2 text-sm text-blue-500" href="/certificate.pdf" target="_blank">[file]</a>
 					</div>
 					<h3 class="mb-1 text-sm">Highlights:</h3>
 					{#each education.activities as activity, i}
